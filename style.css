@@ -36,7 +36,7 @@ label {
 }
 
 input[type="text"] {
-    flex: 2; /* Adjust the value to control the input's width */
+    flex: 2; 
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -46,22 +46,19 @@ input[type="range"] {
     width: 66%;
 }
 
-/* For WebKit-based browsers (Chrome, Safari) */
 input[type="range"]::-webkit-slider-thumb {
-    background-color: #000; /* Black color for the slider thumb */
+    background-color: #000; 
 }
 
 /* For Firefox */
 input[type="range"]::-moz-range-thumb {
-    background-color: #000; /* Black color for the slider thumb */
+    background-color: #000; 
 }
 
-/* Disable inputs */
 input[disabled] {
     background-color: #f2f2f2;
 }
 
-/* Highlight input with errors */
 input:invalid {
     border: 1px solid red;
 }
