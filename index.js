@@ -1,42 +1,26 @@
-window.onload = () => 
-	//the function called when Calculate button is clicked. 
-	{ 
-		/*calling a function calculateTip 
-		which will calculate the tip for the bill.*/
-		document.querySelector('#calculate').onclick = calculateTip; 
-	} 
+const tipForm = document.getElementById("tipForm");
+const billTotal = document.getElementById("billTotal");
+const tip = document.getElementById("tip");
+const tipPercentageValue = document.getElementById("tipPercentageValue");
+const tipAmount = document.getElementById("tipAmount");
+const totalWithTip = document.getElementById("totalWithTip");
 
-function calculateTip() { 
-	/*assign values of ID : amount, person and service to 
-	variables for further calculations.*/
-	let amount = document.querySelector('#amount').value; 
-	let persons = document.querySelector('#persons').value; 
-	let service = document.querySelector('#services').value; 
+tipForm.addEventListener("input", updateTip);
 
-	console.log(service); 
-	/*if statement will work when user presses 
-		calculate without entering values. */
-	//so will display an alert box and return. 
-	if (amount === '' && service === 'Select') { 
-		alert("Please enter valid values"); 
-		return; 
-	} 
-
-	//now we are checking number of persons 
-	if (persons === '1') 
-	//if there is only one person then we need not to display each. 
-		document.querySelector('#each').style.display = 'none'; 
-	else
-	//if there are more than one person we will display each. 
-		document.querySelector('#each').style.display = 'block'; 
-
-	/*calculating the tip by multiplying total-bill and type of 
-	service; then dividing it by number of persons.*/
-	//fixing the total amount upto 2 digits of decimal 
-	let total = (amount * service) / persons; 
-	total = total.toFixed(2); 
-
-	//finally displaying the tip value 
-	document.querySelector('.tip').style.display = 'block'; 
-	document.querySelector('#total').innerHTML = total; 
+function updateTip() {
+    const billValue = parseFloat(billTotal.value);
+    const tipValue = parseFloat(tip.value);
+    const tipPercentage = tipValue + "%";
+    tipPercentageValue.textContent = tipPercentage;
+    
+    if (!isNaN(billValue)) {
+        const tipAmountValue = (billValue * tipValue) / 100;
+        const totalValue = billValue + tipAmountValue;
+        tipAmount.value = tipAmountValue.toFixed(2);
+        totalWithTip.value = totalValue.toFixed(2);
+    } else {
+        // Handle non-numeric input
+        tipAmount.value = "";
+        totalWithTip.value = "";
+    }
 }
