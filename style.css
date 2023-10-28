@@ -10,11 +10,11 @@ body {
 }
 
 .container {
-    background-color: #fff;
+    background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 450px;
     text-align: center;
 }
 
@@ -24,24 +24,36 @@ h1 {
 }
 
 .form-group {
+    display: flex;
     margin: 10px 0;
 }
 
 label {
-    display: block;
+    flex: 1;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-right: 10px;
+    text-align: right;
 }
 
 input[type="text"] {
-    width: 100%;
+    flex: 2; /* Adjust the value to control the input's width */
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
 
 input[type="range"] {
-    width: 100%;
+    width: 66%;
+}
+
+/* For WebKit-based browsers (Chrome, Safari) */
+input[type="range"]::-webkit-slider-thumb {
+    background-color: #000; /* Black color for the slider thumb */
+}
+
+/* For Firefox */
+input[type="range"]::-moz-range-thumb {
+    background-color: #000; /* Black color for the slider thumb */
 }
 
 /* Disable inputs */
