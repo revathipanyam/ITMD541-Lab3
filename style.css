@@ -65,3 +65,35 @@ input[disabled] {
 input:invalid {
     border: 1px solid red;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /
+    }
+
+    input[type="text"], input[type="range"] {
+        width: 100%; 
+    }
+
+    label {
+        flex: 1; 
+        margin: 5px 0; 
+        text-align: left; 
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%; 
+    }
+
+    input[type="text"], input[type="range"] {
+        width: 100%; 
+    }
+
+    label {
+        flex: 1; 
+        margin: 5px 0; 
+        text-align: left; 
+    }
+}
