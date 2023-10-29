@@ -10,15 +10,13 @@ tipForm.addEventListener("input", updateTip);
 function updateTip() {
     const billValue = parseFloat(billTotal.value);
     const tipValue = parseFloat(tip.value);
-    const tipPercentageValue = tipValue;
+    tipPercentageValue.value = tipValue; 
     
     if (!isNaN(billValue)) {
         const tipAmountValue = (billValue * tipValue) / 100;
         const totalValue = billValue + tipAmountValue;
         tipAmount.value = tipAmountValue.toFixed(2);
         totalWithTip.value = totalValue.toFixed(2);
-        tipPercentageValue.value = tipPercentageValue.toFixed(2);
-
     } else {
         // Handle non-numeric input
         tipAmount.value = "";
