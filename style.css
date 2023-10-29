@@ -14,7 +14,8 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: 450px;
+    width: 90%; /* Adjusted width for better responsiveness */
+    max-width: 450px; /* Added max-width to prevent the container from becoming too wide */
     text-align: center;
 }
 
@@ -25,34 +26,37 @@ h1 {
 
 .form-group {
     display: flex;
+    flex-direction: column; /* Adjusted to stack form elements vertically */
     margin: 10px 0;
 }
 
 label {
-    flex: 1;
-    font-weight: bold;
-    margin-right: 10px;
-    text-align: right;
+    text-align: left; /* Adjusted to left-align labels for better mobile readability */
+    margin-bottom: 5px; /* Added some spacing between labels and inputs */
 }
 
-input[type="text"] {
-    flex: 2; 
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+input[type="text"],
+input[type="range"] {
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    padding: 8px; /* Adjusted padding for better spacing */
+    margin-bottom: 10px; /* Added some spacing between input elements */
 }
 
 input[type="range"] {
-    width: 66%;
+    width: calc(100% - 16px); /* Adjusted range input width */
 }
 
-input[type="range"]::-webkit-slider-thumb {
-    background-color: #000; 
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+    width: 20px; /* Adjusted thumb size for better mobile interaction */
+    height: 20px;
+    background-color: #000;
 }
 
 /* For Firefox */
-input[type="range"]::-moz-range-thumb {
-    background-color: #000; 
+input[type="range"]::-moz-range-track {
+    height: 20px;
 }
 
 input[disabled] {
