@@ -10,12 +10,11 @@ body {
 }
 
 .container {
-    background-color: #CFCECF;
+    background-color: #f2f2f2;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    width: 90%; /* Adjusted width for better responsiveness */
-    max-width: 450px; /* Added max-width to prevent the container from becoming too wide */
+    width: 450px;
     text-align: center;
 }
 
@@ -26,43 +25,43 @@ h1 {
 
 .form-group {
     display: flex;
-    flex-direction: column; /* Adjusted to stack form elements vertically */
     margin: 10px 0;
 }
 
 label {
-    text-align: left; /* Adjusted to left-align labels for better mobile readability */
-    margin-bottom: 5px; /* Added some spacing between labels and inputs */
+    flex: 1;
+    font-weight: bold;
+    margin-right: 10px;
+    text-align: right;
 }
 
-input[type="text"],
+input[type="text"] {
+    flex: 2; /* Adjust the value to control the input's width */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
 input[type="range"] {
-    width: 100%;
-    box-sizing: border-box; /* Include padding and border in the width calculation */
-    padding: 8px; /* Adjusted padding for better spacing */
-    margin-bottom: 10px; /* Added some spacing between input elements */
+    width: 66%;
 }
 
-input[type="range"] {
-    width: calc(100% - 16px); /* Adjusted range input width */
-}
-
-input[type="range"]::-webkit-slider-thumb,
-input[type="range"]::-moz-range-thumb {
-    width: 20px; /* Adjusted thumb size for better mobile interaction */
-    height: 20px;
-    background-color: #000;
+/* For WebKit-based browsers (Chrome, Safari) */
+input[type="range"]::-webkit-slider-thumb {
+    background-color: #000; /* Black color for the slider thumb */
 }
 
 /* For Firefox */
-input[type="range"]::-moz-range-track {
-    height: 20px;
+input[type="range"]::-moz-range-thumb {
+    background-color: #000; /* Black color for the slider thumb */
 }
 
+/* Disable inputs */
 input[disabled] {
     background-color: #f2f2f2;
 }
 
+/* Highlight input with errors */
 input:invalid {
     border: 1px solid red;
 }
